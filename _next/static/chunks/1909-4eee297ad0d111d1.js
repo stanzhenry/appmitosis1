@@ -1267,108 +1267,108 @@
           return (0, a.jsx)(E.BoardBottomButton, {
             isLoading: c,
             isDisabled: (F && X) || c || "0" === o || !o || W,
-            onClick: async () => {
-              try {
-                var e, t;
-                let n, c;
-                if ((null == B ? void 0 : B.address) === void 0)
-                  throw new k.rn({
-                    code: 9999,
-                    message:
-                      "[DepositMainUIBase.DepositBoardBottomButton]: Unexpected Errors",
-                  });
-                m(!0);
-                let p = (0, u.X)(
-                  (0, k.T$)(o),
-                  null !==
-                    (t =
-                      null === (e = (0, w.Df)(i, s)) || void 0 === e
-                        ? void 0
-                        : e.decimals) && void 0 !== t
-                    ? t
-                    : 18
-                ).toString();
-                if (F) {
-                  let e = (0, w.Df)("mitosis", s);
-                  if (
-                    (null == e ? void 0 : e.address) === void 0 ||
-                    (null == B ? void 0 : B.address) === void 0 ||
-                    void 0 === M.recipient
-                  )
-                    throw new k.rn({
-                      code: 9999,
-                      message:
-                        "[DepositMainUIBase.DepositBoardBottomButton]: Unexpected Errors",
-                    });
-                  c = (0, k.PI)(d()().add(30, "minutes").valueOf() / 1e3);
-                  let { signature: t } = await N({
-                    erc20: null == e ? void 0 : e.address,
-                    caller: null == B ? void 0 : B.address,
-                    spender: w.Ds.artifact.gasStation,
-                    amount: (0, k.PI)(M.amount),
-                    deadline: c,
-                    fromChain: (0, w.Qr)("mitosis").providerConfig,
-                  });
-                  if (
-                    ((n = t),
-                    !(await (0, f.J)(null == B ? void 0 : B.walletClient, {
-                      address: w.Ds.artifact.gasStation,
-                      abi: w.nu,
-                      functionName: "isSignatureValid",
-                      args: [
-                        null == e ? void 0 : e.address,
-                        null == B ? void 0 : B.address,
-                        (0, k.PI)(M.amount),
-                        c,
-                        n,
-                      ],
-                    })))
-                  )
-                    throw new k.rn({
-                      code: 9999,
-                      message:
-                        "[DepositMainUIBase.DepositBoardBottomButton]: Unexpected Errors",
-                    });
-                }
-                let g = await I({ asset: s, amount: p, fromChainName: i });
-                r({
-                  txHash: g.transactionHash,
-                  srcChainName: i,
-                  srcAssetSymbol: s,
-                  amount: p,
-                  gasRefuelConfig:
-                    n && c && M
-                      ? { ...M, deadline: parseInt(c.toString()), signature: n }
-                      : void 0,
-                }),
-                  await C(),
-                  H(B.address),
-                  (0, j.hE)({
-                    ...j.y8.DepositSubmitted,
-                    message: "You successfully deposited "
-                      .concat(o, " ")
-                      .concat(s, " to Mitosis"),
-                    optional: (0, a.jsx)("button", {
-                      className:
-                        "flex w-fit hover:underline underline-offset-2",
-                      onClick: v,
-                      children: (0, a.jsx)(y.at.SMP, {
-                        className: "text-fg-base mt-12",
-                        children: "View Activity",
-                      }),
-                    }),
-                  }),
-                  l(""),
-                  m(!1),
-                  x &&
-                    h({
-                      type: A.qV.DepositProgress,
-                      txHash: g.transactionHash,
-                    });
-              } catch (e) {
-                console.log(e), m(!1), (0, j.m4)(e);
-              }
-            },
+            // onClick: async () => {
+            //   try {
+            //     var e, t;
+            //     let n, c;
+            //     if ((null == B ? void 0 : B.address) === void 0)
+            //       throw new k.rn({
+            //         code: 9999,
+            //         message:
+            //           "[DepositMainUIBase.DepositBoardBottomButton]: Unexpected Errors",
+            //       });
+            //     m(!0);
+            //     let p = (0, u.X)(
+            //       (0, k.T$)(o),
+            //       null !==
+            //         (t =
+            //           null === (e = (0, w.Df)(i, s)) || void 0 === e
+            //             ? void 0
+            //             : e.decimals) && void 0 !== t
+            //         ? t
+            //         : 18
+            //     ).toString();
+            //     if (F) {
+            //       let e = (0, w.Df)("mitosis", s);
+            //       if (
+            //         (null == e ? void 0 : e.address) === void 0 ||
+            //         (null == B ? void 0 : B.address) === void 0 ||
+            //         void 0 === M.recipient
+            //       )
+            //         throw new k.rn({
+            //           code: 9999,
+            //           message:
+            //             "[DepositMainUIBase.DepositBoardBottomButton]: Unexpected Errors",
+            //         });
+            //       c = (0, k.PI)(d()().add(30, "minutes").valueOf() / 1e3);
+            //       let { signature: t } = await N({
+            //         erc20: null == e ? void 0 : e.address,
+            //         caller: null == B ? void 0 : B.address,
+            //         spender: w.Ds.artifact.gasStation,
+            //         amount: (0, k.PI)(M.amount),
+            //         deadline: c,
+            //         fromChain: (0, w.Qr)("mitosis").providerConfig,
+            //       });
+            //       if (
+            //         ((n = t),
+            //         !(await (0, f.J)(null == B ? void 0 : B.walletClient, {
+            //           address: w.Ds.artifact.gasStation,
+            //           abi: w.nu,
+            //           functionName: "isSignatureValid",
+            //           args: [
+            //             null == e ? void 0 : e.address,
+            //             null == B ? void 0 : B.address,
+            //             (0, k.PI)(M.amount),
+            //             c,
+            //             n,
+            //           ],
+            //         })))
+            //       )
+            //         throw new k.rn({
+            //           code: 9999,
+            //           message:
+            //             "[DepositMainUIBase.DepositBoardBottomButton]: Unexpected Errors",
+            //         });
+            //     }
+            //     let g = await I({ asset: s, amount: p, fromChainName: i });
+            //     r({
+            //       txHash: g.transactionHash,
+            //       srcChainName: i,
+            //       srcAssetSymbol: s,
+            //       amount: p,
+            //       gasRefuelConfig:
+            //         n && c && M
+            //           ? { ...M, deadline: parseInt(c.toString()), signature: n }
+            //           : void 0,
+            //     }),
+            //       await C(),
+            //       H(B.address),
+            //       (0, j.hE)({
+            //         ...j.y8.DepositSubmitted,
+            //         message: "You successfully deposited "
+            //           .concat(o, " ")
+            //           .concat(s, " to Mitosis"),
+            //         optional: (0, a.jsx)("button", {
+            //           className:
+            //             "flex w-fit hover:underline underline-offset-2",
+            //           onClick: v,
+            //           children: (0, a.jsx)(y.at.SMP, {
+            //             className: "text-fg-base mt-12",
+            //             children: "View Activity",
+            //           }),
+            //         }),
+            //       }),
+            //       l(""),
+            //       m(!1),
+            //       x &&
+            //         h({
+            //           type: A.qV.DepositProgress,
+            //           txHash: g.transactionHash,
+            //         });
+            //   } catch (e) {
+            //     console.log(e), m(!1), (0, j.m4)(e);
+            //   }
+            // },
             text: W ? "Insufficient Balance" : "Deposit",
           });
         }),
